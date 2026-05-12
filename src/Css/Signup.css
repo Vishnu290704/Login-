@@ -1,74 +1,84 @@
-.auth-container {
-    width: 400px;
-    background: white;
-    padding: 40px;
-    border-radius: 8px;
-  
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+.signup-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: 24px 20px;
+}
+
+/* Reuses same .auth-card, .form-group, .form-label, .form-input, .auth-btn classes from Login.css */
+/* Add signup-specific below */
+
+.name-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.password-hint {
+  font-size: 11.5px;
+  color: var(--text2);
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+.strength-bar {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.strength-seg {
+  flex: 1;
+  height: 3px;
+  border-radius: 4px;
+  background: var(--surface3);
+  transition: background 0.25s;
+}
+
+.strength-seg.fill-red    { background: var(--red); }
+.strength-seg.fill-amber  { background: var(--amber); }
+.strength-seg.fill-green  { background: var(--green); }
+
+.strength-label {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.strength-label.weak   { color: var(--red); }
+.strength-label.medium { color: var(--amber); }
+.strength-label.strong { color: var(--green); }
+
+.role-select {
+  width: 100%;
+  padding: 11px 14px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237e889e' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.role-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79,124,255,0.15);
+}
+
+.role-select option {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+@media (max-width: 480px) {
+  .name-row {
+    grid-template-columns: 1fr;
   }
-  
-  .auth-container h1 {
-    margin-bottom: 25px;
-    color: #222;
-    font-size: 45px;
-  }
-  
-  .auth-container input {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 18px;
-  
-    border: 1px solid #cfd8dc;
-    border-radius: 4px;
-  
-    font-size: 15px;
-    box-sizing: border-box;
-  }
-  
-  .auth-container input:focus {
-    outline: none;
-    border: 2px solid #1ea7bd;
-  }
-  
-  .auth-container button {
-    width: 100%;
-    padding: 14px;
-  
-    background: #1ea7bd;
-    color: white;
-  
-    border: none;
-    border-radius: 4px;
-  
-    font-size: 18px;
-    cursor: pointer;
-  
-    transition: 0.3s;
-  }
-  
-  .auth-container button:hover {
-    background: #148ca0;
-  }
-  
-  .error-text {
-    color: red;
-    margin-top: 10px;
-    text-align: center;
-  }
-  
-  .bottom-text {
-    text-align: center;
-    margin-top: 20px;
-    color: #555;
-    font-size: 15px;
-  }
-  
-  .bottom-text span {
-    color: #1ea7bd;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .bottom-text span:hover {
-    text-decoration: underline;
-  }
+}
